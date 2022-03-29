@@ -1,13 +1,16 @@
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar from './components/NavBar.js'
+import './css/App.css';
+import './css/normalize.css';
+import Navbar from './components/NavBar';
+import ItemListContainer from './components/ItemListContainer';
 
 function App() {
   return (
     <>
-      <Navbar></Navbar>
+      <style>@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Ubuntu&display=swap');</style>
+      <Navbar/>
+      <ItemListContainer/>
     </>
   );
 }
-
 export default App;

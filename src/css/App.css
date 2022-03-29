@@ -1,0 +1,35 @@
+*{
+    font-family: 'Ubuntu', sans-serif;
+}
+.navbar{
+    background: rgb(9,2,140);
+    background: linear-gradient(190deg, rgba(9,2,140,1) 0%, rgba(28,28,212,1) 50%, rgba(0,169,203,1) 100%);
+    position: sticky;
+    width: 100%;
+}
+.navbar-collapse{
+    justify-content: flex-end;
+    margin-right: 3em;
+}
+.nav-link{
+    color: rgb(243, 233, 233);
+    font-size: 1.2em;
+    padding: 0 1.5em 0 1.5em;
+}
+.logo{
+    width: 5em;
+    height: 5em;
+}
+.navbar-brand{
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.2em;
+    color: rgb(243, 233, 233);
+    margin-left: 2em;
+}
+.botonCarrito{
+    background: none;
+    border: none;
+    color: rgb(243, 233, 233);
+    margin-right: 5px;
+    font-size: 2.5em;
+}
