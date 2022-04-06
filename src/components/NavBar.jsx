@@ -1,29 +1,21 @@
-import CartWidget from './CartWidget'
+/* eslint-disable no-unused-vars */
+import React from 'react';
+import { Navbar, Nav } from 'react-bootstrap';
+import CartWidget from './CartWidget';
 /* eslint-disable jsx-a11y/anchor-is-valid */
-const Navbar = () => {
-    return (
-        <nav className="navbar navbar-expand-lg">
-            <div className="container-fluid">
-                <a className="navbar-brand" href="#">Deborame otra vez</a>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-
-                <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav">
-                        <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="#">Inicio</a>
-                        </li>
-                        <li className="nav-item">
-                            <i className="fa-solid fa-cart-shopping"></i><a className="nav-link" href="#">Productos</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Pricing</a>
-                        </li>
-                    </ul>
-                    <CartWidget />
-                </div>
-            </div>
-        </nav>)
+const NavBar = () =>{
+    return(
+        <Navbar className="navbar" expand="lg">
+            <Navbar.Brand className="navbar-brand" href="#home">Debórame otra vez</Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse className="navbar-collapse" id="basic-navbar-nav">
+                <Nav className="nav-link">
+                    <Nav.Link href="#home">Inicio</Nav.Link>
+                    <Nav.Link href="#link">Productos</Nav.Link>
+                    <CartWidget/>
+                </Nav>
+            </Navbar.Collapse>
+        </Navbar>
+    );
 }
-export default Navbar;
+export default NavBar;

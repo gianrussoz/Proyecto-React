@@ -1,11 +1,14 @@
 *{
     font-family: 'Ubuntu', sans-serif;
 }
+.container{
+    margin: 0;
+}
 .navbar{
     background: rgb(9,2,140);
     background: linear-gradient(190deg, rgba(9,2,140,1) 0%, rgba(28,28,212,1) 50%, rgba(0,169,203,1) 100%);
     position: sticky;
-    width: 100%;
+    min-width: 100%;
 }
 .navbar-collapse{
     justify-content: flex-end;
@@ -15,10 +18,6 @@
     color: rgb(243, 233, 233);
     font-size: 1.2em;
     padding: 0 1.5em 0 1.5em;
-}
-.logo{
-    width: 5em;
-    height: 5em;
 }
 .navbar-brand{
     font-family: 'Dancing Script', cursive;
