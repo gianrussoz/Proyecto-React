@@ -1,23 +1,25 @@
 import ItemCount from './ItemCount';
 import ItemList from './ItemList';
-import mostrarProductos from '../promesa';
 import { useEffect, useState } from 'react';
-const { products } = require('../../products');
+import { getData } from '../utils/products';
 
 const ItemListContainer = () => {
     const [datos, setDatos] = useState([]);
 
     useEffect(() => {
-        mostrarProductos(1000, products)
-            .then(result => setDatos(result))
-            .catch(error => console.log(error));
+        async function pedirDatos() {
+            let datosRecibidos = await getData();
+            setDatos(datosRecibidos);
+        }
+        pedirDatos()
     }, []);
+console.log(datos);
     const onAdd = (count) => {
         alert("Añadiste " + count + " items al carrito.");
     }
     return (
         <>
-            <ItemList items={datos} />
+            <ItemList products={datos}/>
             <ItemCount stock="5" initial="1" onAdd={onAdd}/>
         </>
     )

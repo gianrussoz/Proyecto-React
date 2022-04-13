@@ -1,7 +1,20 @@
+import React from 'react';
+import {Container, Row} from 'react-bootstrap';
+import Item from './Item';
 
-const ItemList = ({ products }) => {
-    return (    products.length > 0
-            ? products.map(producto => producto id={producto.id} nombre={producto.tipo} precio={producto.precio} foto={producto.img[0]} stock={producto.stock})
-        : console.log("No hay productos")
+function ItemList ({products}){
+    return (
+        <>
+            <Container fluid>
+                <Row>
+                    {products.map((products) => (
+                        <Item key={products.id} {...products} />
+                    ))
+                    }
+                </Row>
+            </Container>
+        </>
     );
 }
+
+export default ItemList;

@@ -1,4 +1,4 @@
-import { products } from '../../products';
+/* import { products } from '../../products';
 let productos = products;
 
 let mostrarProductos = (tiempo, contenido) => {
@@ -11,4 +11,4 @@ let mostrarProductos = (tiempo, contenido) => {
     })
 }
 
-export default mostrarProductos;
+export default mostrarProductos; */
