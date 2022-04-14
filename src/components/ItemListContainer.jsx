@@ -1,11 +1,12 @@
 import ItemCount from './ItemCount';
 import ItemList from './ItemList';
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
 import { getData } from '../utils/products';
 
 const ItemListContainer = () => {
     const [datos, setDatos] = useState([]);
-
+    const { idCategory } = useParams();
     useEffect(() => {
         async function pedirDatos() {
             let datosRecibidos = await getData();

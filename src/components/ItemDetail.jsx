@@ -2,7 +2,7 @@ import ItemCount from './ItemCount';
 import { Card,Container, Row } from 'react-bootstrap';
 
 const ItemDetail = ({ item }) => {
-        const onAdd = (count) => {
+    const onAdd = (count) => {
         alert("Añadiste " + count + " items al carrito.");
     }
 
@@ -16,9 +16,8 @@ const ItemDetail = ({ item }) => {
                     <Card.Text>{item.precio}</Card.Text>
                 </Row>
             </Container>
-            <ItemCount stock={item.stock} initial={1} onAdd={onAdd}/>
+            <ItemCount stock={item.stock} initial={1} onAdd={onAdd} />
         </>
     );
 }
-
 export default ItemDetail;

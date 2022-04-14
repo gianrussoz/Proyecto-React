@@ -17,9 +17,9 @@ function ItemCount ({ stock, initial, onAdd }) {
 
     return (
         <>
-            <Button onClick={decrement}>-</Button>
+            <Button onClick={decrement}> - </Button>
             <span>{count}</span>
-            <Button onClick={increment}>+</Button>
+            <Button onClick={increment}> + </Button>
             <Button onClick={() => onAdd(count)}>Añadir al carrito</Button>
         </>
     );

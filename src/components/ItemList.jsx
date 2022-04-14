@@ -7,9 +7,10 @@ function ItemList ({products}){
         <>
             <Container fluid>
                 <Row>
-                    {products.map((products) => (
-                        <Item key={products.id} {...products} />
-                    ))
+                    {
+                        products.length > 0
+                        ?   products.map((products) => (<Item key={products.id} {...products} />))
+                        :   <p>No hay productos.</p>
                     }
                 </Row>
             </Container>
