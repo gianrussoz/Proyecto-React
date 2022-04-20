@@ -9,12 +9,12 @@ import ItemDetailContainer from '../components/ItemDetailContainer';
 function App() {
   return (
     <>
-        <BrowserRouter>
+      <BrowserRouter>
         <Navbar/>
         <Routes>
           <Route path='/' element={<ItemListContainer />} />
-          <Route path='/category/:idCategory' element={<ItemListContainer />} />
-          <Route path='/item/:idItem' element={<ItemDetailContainer />} />
+          <Route path='/category/:idTipo' element={<ItemListContainer />} />
+          <Route path='/item/:id' element={<ItemDetailContainer />} />
         </Routes>
       </BrowserRouter>
     </>

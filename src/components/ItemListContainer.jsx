@@ -1,28 +1,29 @@
-import ItemCount from './ItemCount';
 import ItemList from './ItemList';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import { getData } from '../utils/products';
+import promesaProductos from '../utils/promesa';
+import products from '../utils/products';
 
 const ItemListContainer = () => {
     const [datos, setDatos] = useState([]);
-    const { idCategory } = useParams();
+    const { idTipo } = useParams();
+
     useEffect(() => {
-        async function pedirDatos() {
-            let datosRecibidos = await getData();
-            setDatos(datosRecibidos);
+        if (idTipo === undefined) {
+            promesaProductos(2000, products)
+                .then(resultado => setDatos(resultado))
+                .catch(error => console.log(error));
+        } else {
+            promesaProductos(2000, products.filter(producto => producto.idTipo === parseInt(idTipo)))
+                .then(resultado => setDatos(resultado))
+                .catch(error => console.log(error));
         }
-        pedirDatos()
-    }, []);
-console.log(datos);
-    const onAdd = (count) => {
-        alert("Añadiste " + count + " items al carrito.");
-    }
+    }, [idTipo]);
+
     return (
         <>
-            <ItemList products={datos}/>
-            <ItemCount stock="5" initial="1" onAdd={onAdd}/>
+            <ItemList products={datos} />
         </>
-    )
+    );
 }
 export default ItemListContainer;

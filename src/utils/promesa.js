@@ -1,14 +1,15 @@
-/* import { products } from '../../products';
-let productos = products;
+let hayProductos = true;
 
-let mostrarProductos = (tiempo, contenido) => {
+const promesaProductos = (tiempo, contenido) => {
     return new Promise((resolve, reject) => {
-        if (productos = true) {
-            setTimeout(() => resolve (contenido), tiempo);
-        } else {
-            reject("No hay productos");
-        }
-    })
-}
+        setTimeout(() => {
+            if (hayProductos) {
+                resolve(contenido);
+            } else {
+                reject("No hay productos");
+            }
+        }, tiempo);
+    });
+};
 
-export default mostrarProductos; */
+export default promesaProductos;

@@ -1,19 +1,18 @@
-import { useState, useEffect } from 'react';
-import { useParams } from "react-router";
 import ItemDetail from './ItemDetail';
-import { getData } from '../utils/products';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
+import promesaProductos from '../utils/promesa';
+import products from '../utils/products';
 
 const ItemDetailContainer = () => {
     const [datos, setDatos] = useState({});
-    const { idItem } = useParams();
+    const { id } = useParams();
 
     useEffect(() => {
-        async function pedirDatos() {
-            let datosRecibidos = await getData();
-            setDatos(datosRecibidos);
-        }
-        pedirDatos()
-    }, []);
+        promesaProductos(2000, products.find(producto => producto.id === parseInt(id)))
+            .then(resultado => setDatos(resultado))
+            .catch(error => console.log(error));
+    }, [id]);
 
     return (
         <>
@@ -21,5 +20,4 @@ const ItemDetailContainer = () => {
         </>
     );
 }
-
 export default ItemDetailContainer;

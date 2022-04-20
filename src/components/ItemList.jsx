@@ -9,7 +9,7 @@ function ItemList ({products}){
                 <Row>
                     {
                         products.length > 0
-                        ?   products.map((products) => (<Item key={products.id} {...products} />))
+                        ?   products.map(products => <Item key={products.id} {...products} />)
                         :   <p>No hay productos.</p>
                     }
                 </Row>
