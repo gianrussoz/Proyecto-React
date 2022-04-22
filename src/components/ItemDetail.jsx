@@ -1,12 +1,15 @@
 import ItemCount from './ItemCount';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Card, Container, Row, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { CartContext } from '../context/CartContext';
 
 const ItemDetail = ({ item }) => {
     const [itemCount, setItemCount] = useState(0);
+
+    const detail = useContext(CartContext);
 
     const onAdd = (count) => {
         toast.success(`Añadiste ${count} productos al carrito!`, {
@@ -19,6 +22,7 @@ const ItemDetail = ({ item }) => {
             progress: undefined,
         });
         setItemCount(count);
+        detail.addToCart(item);
     }
 
     return (

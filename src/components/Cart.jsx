@@ -1,32 +1,24 @@
-import { useContext, useEffect } from 'react';
-import { CartContext } from './CartContext';
-import { WrapperCart, TitleCart, ContentCart, Product, ProductDetail, ImageCart, Details, PriceDetail, ProductAmountContainer, ProductAmount, ProductPrice, Hr } from './styledComponents';
+import { useContext } from 'react';
+import { CartContext } from '../context/CartContext';
 
 const Cart = () => {
     const test = useContext(CartContext);
 
     return (
-        <WrapperCart>
-            <TitleCart>YOUR CART</TitleCart>
-            <ContentCart>
-                    <Product>
-                    <ProductDetail>
-                        <ImageCart src="https://res.cloudinary.com/hdsqazxtw/image/upload/v1559681445/logo_coderhouse_1_rec5vl.png" />
-                        <Details>
-                        <span>
-                            <b>Product:</b> JESSIE THUNDER SHOES
-                        </span>
-                        </Details>
-                    </ProductDetail>
-                    <PriceDetail>
-                        <ProductAmountContainer>
-                        <ProductAmount>2 items</ProductAmount>
-                        </ProductAmountContainer>
-                        <ProductPrice>$ 30 each</ProductPrice>
-                    </PriceDetail>
-                    </Product>
-            </ContentCart>
-        </WrapperCart>
+        <>
+            <h2>Tu carrito</h2>
+            <button onClick={test.removeList}>Vaciar carrito</button>
+            {  test.cartList.map(item =>
+                <div>
+                    <img alt="foto" src={item.img} />
+                    <span>
+                        <b>Product: {item.name}</b>
+                    </span>
+                    <div>{item.precio}</div>
+                </div>
+            )
+            }
+        </>
     );
 }
 

@@ -9,7 +9,7 @@ const Item = ({ id, tipo, stock, precio, img }) => {
                 <Card.Img variant="top" src={img} />
                 <Card.Body>
                     <Card.Title>{tipo}</Card.Title>
-                    <Card.Text>{stock}</Card.Text>
+                    <Card.Text>{stock} unidades en stock</Card.Text>
                     <Card.Text>{precio}</Card.Text>
                     <Link to={`/item/${id}`}><InfoIcon>Más detalles</InfoIcon></Link>
                 </Card.Body>

@@ -15,7 +15,7 @@ const NavBar = () =>{
                     <Nav.Link><Link to='/category/0'>Difusores</Link></Nav.Link>
                     <Nav.Link><Link to='/category/1'>Aerosoles</Link></Nav.Link>
                     <Nav.Link><Link to='/category/3'>Aceites</Link></Nav.Link>
-                    <CartWidget/>
+                    <Link to='/cart'> <CartWidget/> </Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
