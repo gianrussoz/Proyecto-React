@@ -9,7 +9,7 @@ const ItemDetailContainer = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        promesaProductos(1000, products.find(producto => producto.id === parseInt(id)))
+        promesaProductos(2000, products.find(producto => producto.id === parseInt(id)))
             .then(resultado => setDatos(resultado))
             .catch(error => console.log(error));
     }, [id]);
