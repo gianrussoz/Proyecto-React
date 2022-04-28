@@ -3,11 +3,10 @@ import { createContext, useState } from 'react';
 export const CartContext = createContext();
 
 const CartContextProvider = ({ children }) => {
-
     const [cartList, setCartList] = useState([]);
 
     const addToCart = (item, count) => {
-        let found = cartList.find(product => product.id === item.id);
+        let found = cartList.find(products => products.id === item.id);
         if (found === undefined) {
             setCartList([
                 ...cartList,
@@ -29,18 +28,18 @@ const CartContextProvider = ({ children }) => {
     }
 
     const borrarProducto = (id) => {
-        let result = cartList.filter(item => item.id != id);
+        let result = cartList.filter(item => item.idItem !== id);
         setCartList(result);
     }
 
-    const precioItem = (id) => {
-        let index = cartList.map(item => item.id).indexOf(id);
-        return cartList[index].costItem * cartList[index].qtyItem;
+    const precioItem = (idItem) => {
+        let index = cartList.map(item => item.idItem).indexOf(idItem);
+        return cartList[index].precio * cartList[index].qtyItem;
     }
 
     const calcSubTotal = () => {
-        let totalPerItem = cartList.map(item => precioItem(item.id));
-        return totalPerItem.reduce((previousValue, currentValue) => previousValue + currentValue);
+        let itemTotal = cartList.map(item => precioItem(item.idItem));
+        return itemTotal.reduce((precioAnterior, precioActual) => precioAnterior + precioActual);
     }
 
     const iva = () => {
@@ -52,10 +51,9 @@ const CartContextProvider = ({ children }) => {
     }
 
     const itemsCW = () => {
-        let qtys = cartList.map(item => item.qtyItem);
-        return qtys.reduce(((previousValue, currentValue) => previousValue + currentValue), 0);
+        let cantidad = cartList.map(item => item.qtyItem);
+        return cantidad.reduce(((previousValue, currentValue) => previousValue + currentValue), 0);
     }
-
 
     return (
         <>
