@@ -22,7 +22,7 @@ const ItemDetail = ({ item }) => {
             progress: undefined,
         });
         setItemCount(count);
-        detail.addToCart(item);
+        detail.addToCart(item,count);
     }
 
     return (
