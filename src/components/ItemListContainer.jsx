@@ -1,23 +1,26 @@
 import ItemList from './ItemList';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import promesaProductos from '../utils/promise';
-import products from '../utils/products';
+import db from '../utils/firebaseConfig';
+import { collection, getDocs } from "firebase/firestore";
 
 const ItemListContainer = () => {
     const [datos, setDatos] = useState([]);
     const { idTipo } = useParams();
 
+
     useEffect(() => {
-        if (idTipo === undefined) {
-            promesaProductos(2000, products)
-                .then(resultado => setDatos(resultado))
-                .catch(error => console.log(error));
-        } else {
-            promesaProductos(2000, products.filter(producto => producto.idTipo === parseInt(idTipo)))
-                .then(resultado => setDatos(resultado))
-                .catch(error => console.log(error));
+        const firestoreFetch = async () => {
+            const querySnapshot = await getDocs(collection(db, "products"));
+            const firestoreData = querySnapshot.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data()
+            }));
+            return firestoreData;
         }
+        firestoreFetch()
+            .then(result => setDatos(result))
+            .catch(error => console.log(error));
     }, [idTipo]);
 
     return (

@@ -1,9 +1,37 @@
 import { useContext } from 'react';
 import { CartContext } from './CartContext';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { serverTimestamp } from 'firebase/firestore';
 
 const Cart = () => {
     const detail = useContext(CartContext);
+
+    const order ={
+        buyer: {
+            name: "hola",
+            email: "hola",
+            phone: "hola"
+        },
+        date: serverTimestamp(),
+        total: detail.precioFinal(),
+        items: detail.cartList.map(item => ({
+            id: item.id,
+            title: item.tipo,
+            price: item.precio,
+            count: item.count
+        })),
+    }
+}
+
+    const createdOrder = async() => {
+        const newOrder = doc(collection(db, "orders"));
+        await setDoc(newOrder, order);
+        return newOrder;
+    }
+createdOrder()
+    .then(result => alert("orden creada"))
+    .catch(error => console.log(error));
+detail.borrarLista();
 
     return (
         <>
@@ -38,6 +66,7 @@ const Cart = () => {
                         <strong>{detail.iva()}</strong>
                         <p>Total</p>
                         <strong>{detail.precioFinal()}</strong>
+                        <button type="filled" onClick={pay}>Comprar</button>
                 </div>
             }
         </>

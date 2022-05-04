@@ -11,10 +11,10 @@ const NavBar = () =>{
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse className="navbar-collapse" id="basic-navbar-nav">
                 <Nav className="nav-link">
-                    <Nav.Link><Link to='/category/2'>Perfumes</Link></Nav.Link>
-                    <Nav.Link><Link to='/category/0'>Difusores</Link></Nav.Link>
-                    <Nav.Link><Link to='/category/1'>Aerosoles</Link></Nav.Link>
-                    <Nav.Link><Link to='/category/3'>Aceites</Link></Nav.Link>
+                    <Nav.Link><Link to='/category/Perfumes'>Perfumes</Link></Nav.Link>
+                    <Nav.Link><Link to='/category/Difusores'>Difusores</Link></Nav.Link>
+                    <Nav.Link><Link to='/category/Aerosoles'>Aerosoles</Link></Nav.Link>
+                    <Nav.Link><Link to='/category/Aceites'>Aceites</Link></Nav.Link>
                     <Link to='/cart'> <CartWidget/> </Link>
                 </Nav>
             </Navbar.Collapse>
