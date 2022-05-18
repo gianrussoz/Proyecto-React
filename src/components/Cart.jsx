@@ -67,14 +67,13 @@ const Cart = () => {
                         {
                             (detail.cartList.length > 0)
                             ? <Button type="filled" onClick={detail.borrarLista}>Vaciar carrito</Button>
-                            : <StockAmount>Your cart is empty</StockAmount>
+                            : <StockAmount>Tu carrito está vacío</StockAmount>
                         }
                 </TopContainerBottom>
             </TopContainer>
             <ContentCart>
-                <Bottom><CartItems>
-
-                
+                <Bottom>
+                <CartItems>
                 {  detail.cartList.map(item =>
                     <div key={item.idItem}>
                         <ItemContainer>
