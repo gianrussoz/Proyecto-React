@@ -1,5 +1,7 @@
 # E-commerce React JS
 
+![Gif del proyecto](https://github.com/gianrussoz/Proyecto-React/blob/master/Dev%C3%B3rame%20otra%20vez.gif)
+
 Este es un proyecto para el curso de ReactJS de Coderhouse. <br>
 El mismo utiliza Firebase para el almacenamiento de productos y el manejo de sus compras.
 
