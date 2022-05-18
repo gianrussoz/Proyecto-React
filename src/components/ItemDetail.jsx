@@ -1,10 +1,11 @@
 import ItemCount from './ItemCount';
 import { useState, useContext } from 'react';
-import { Card, Container, Row, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { CartContext } from './CartContext';
+import { Button, ProductDetails, Img, ImgContainer, ProductDetailInfo, Price, ProductTitle } from '../styles/styled-components';
+import  loader  from '../assets/loader.gif';
 
 const ItemDetail = ({ item }) => {
     const [itemCount, setItemCount] = useState(0);
@@ -22,28 +23,39 @@ const ItemDetail = ({ item }) => {
             progress: undefined,
         });
         setItemCount(count);
-        detail.addToCart(item,count);
+        detail.addToCart(item, count);
     }
 
     return (
         <>
             {
                 item.img ?
-                <Container fluid>
-                    <Row>
-                        <Card.Img variant="top" src={item.img} />
-                        <Card.Title>{item.tipo}</Card.Title>
-                        <Card.Text>{item.stock}</Card.Text>
-                        <Card.Text>${item.precio}</Card.Text>
-                        {
-                        itemCount === 0
-                        ? <ItemCount stock={item.stock} initial={itemCount} onAdd={onAdd} />
-                        : <Link to='/cart'><Button>CheckOut</Button></Link>
-                        }
-                    </Row>
-                    <ToastContainer />
-                </Container>
-            : <p>No hay productos</p>
+                <ProductDetails>
+                        <ImgContainer>
+                            <Img alt="foto" src={item.img} />
+                        </ImgContainer>
+                        <ProductDetailInfo>
+                            <ProductTitle>{item.tipo}</ProductTitle>
+                            <Price>${item.precio}</Price>
+                            {
+                            itemCount === 0
+                            ? <ItemCount stock={item.stock} initial={itemCount} onAdd={onAdd} />
+                            : <Link to='/cart'><Button>Ir al carrito</Button></Link>
+                            }
+                        </ProductDetailInfo>
+                    <ToastContainer
+                        position="top-right"
+                        autoClose={3000}
+                        hideProgressBar
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                    />
+                </ProductDetails>
+            : <img src={ loader } alt="loader"/>
             }
         </>
     );

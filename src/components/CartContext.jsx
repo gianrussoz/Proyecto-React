@@ -47,7 +47,7 @@ const CartContextProvider = ({ children }) => {
     }
 
     const precioFinal = () => {
-        return calcSubTotal();
+        return calcSubTotal() + iva();
     }
 
     const itemsCW = () => {

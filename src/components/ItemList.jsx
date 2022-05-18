@@ -1,19 +1,18 @@
 import React from 'react';
-import {Container, Row} from 'react-bootstrap';
 import Item from './Item';
+import { ProductsContainer } from '../styles/styled-components';
+import  loader  from '../assets/loader.gif';
 
 function ItemList ({products}){
     return (
         <>
-            <Container fluid>
-                <Row>
+            <ProductsContainer>
                     {
                         products.length > 0
                         ?   products.map(products => <Item key={products.id} {...products} />)
-                        :   <p>No hay productos.</p>
+                        :   <img src={ loader } alt="loader"/>
                     }
-                </Row>
-            </Container>
+            </ProductsContainer>
         </>
     );
 }

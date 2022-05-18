@@ -1,5 +1,6 @@
-import { Button } from 'react-bootstrap';
 import { useState } from 'react';
+import { Button, StockAmount, StockAmountContainer } from '../styles/styled-components';
+
 
 function ItemCount ({ stock, initial, onAdd }) {
     const [count, setCount] = useState(0);
@@ -17,10 +18,12 @@ function ItemCount ({ stock, initial, onAdd }) {
 
     return (
         <>
-            <Button onClick={decrement}> - </Button>
-            <span>{count}</span>
-            <Button onClick={increment}> + </Button>
-            <Button onClick={() => onAdd(count)}>Añadir al carrito</Button>
+            <StockAmountContainer>
+                <Button onClick={decrement}> - </Button>
+                <StockAmount>{count}</StockAmount>
+                <Button onClick={increment}> + </Button>
+                <Button onClick={() => onAdd(count)}>Añadir al carrito</Button>
+            </StockAmountContainer>
         </>
     );
 }
